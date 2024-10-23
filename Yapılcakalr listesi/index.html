@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayvan Temalı To-Do List</title>
+    <style>
+        body {
+            font-family: 'Fredoka One', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('image.png') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 450px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff7043;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        ul li {
+            padding: 15px;
+            background-color: #ffe082;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px;
+            font-size: 1.2em;
+            border: 2px solid #ffb74d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: scale(1.05);
+            background-color: #ffd54f;
+        }
+
+        ul li.completed {
+            text-decoration: line-through;
+            background-color: #c8e6c9;
+            border-color: #81c784;
+        }
+
+        button {
+            background-color: #64b5f6;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #42a5f5;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 2px solid #ffb74d;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #42a5f5;
+        }
+
+        .animal-icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .empty-message {
+            color: #757575;
+            font-size: 1em;
+            margin-top: 15px;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8em;
+            color: #757575;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦁 Görev Listesi 🐘</h1>
+        <input type="text" id="taskInput" placeholder="Yeni görev ekle...">
+        <button onclick="addTask()">Görev Ekle</button>
+        <ul id="taskList"></ul>
+        <div class="scroll-hint">Kaydırmak için yukarı/aşağı sürükleyin</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
